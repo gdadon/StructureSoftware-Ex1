@@ -93,8 +93,6 @@ public class Graph {
         return path;
     }
     
-    private void foo1(){};
- 
     public static void main(String[] args) {
         Graph g = new Graph("C:\\Users\\Tomer\\Desktop\\TotoTest.txt");
         g.printGraph();
