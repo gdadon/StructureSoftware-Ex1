@@ -99,6 +99,18 @@ public class Graph {
     	}
     }
     
+    /**
+	 * returns the graph to its start point, no distance between nodes and no previus.
+	 * @param g
+	 */
+	public static void clearGraph(Graph g){
+		g.setBlackList(null);
+		for (Vertex v : g.getVertices()) {
+			v.setMinDistance(Double.POSITIVE_INFINITY);
+			v.setPrevious(null);
+		}
+	}
+    
     // Getters and setters.
     
     public LinkedList<Integer> getBlackList() {
