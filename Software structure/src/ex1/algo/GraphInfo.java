@@ -54,7 +54,7 @@ public class GraphInfo {
 			clearGraph(g);
 		}
 
-		return "Diameter: "+tempDist[0]+", Radius: "+tempDist[1];
+		return "Diameter: "+diameter+", Radius: "+radius;
 	}
 
 	/**
