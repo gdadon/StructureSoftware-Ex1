@@ -35,8 +35,8 @@ public class GraphInfo {
 	public static String getDiameterAndRadius(Graph g){
 
 		double diameter = 0;
-		double radius = 0;
-		double[] tempDist = new double[2];
+		double radius = Double.POSITIVE_INFINITY;
+		double tempDist = 0;
 
 		for (Vertex v : g.getVertices()) {
 			// calculating the shortest path to current vertex
@@ -45,11 +45,11 @@ public class GraphInfo {
 			// get the farest and closest vertices of current vertex
 			tempDist = getDistances(g, v.getId());
 
-			if(tempDist[0] > diameter)
-				diameter = tempDist[0];
+			if(tempDist > diameter)
+				diameter = tempDist;
 
-			if(tempDist[1] < radius)
-				radius = tempDist[1];
+			else if(tempDist < radius)
+				radius = tempDist;
 
 			clearGraph(g);
 		}
@@ -63,26 +63,16 @@ public class GraphInfo {
 	 * @param vId - vertex to search its closest and most far vertices.
 	 * @return an array of the form [Farest Vertex, Closest Vertex]
 	 */
-	private static double[] getDistances(Graph g, int vId){
+	private static double getDistances(Graph g, int vId){
 		double farest = 0.;
-		double closest = Double.POSITIVE_INFINITY;
 		for (Vertex v : g.getVertices()) {
 			double dist = v.getMinDistance();
 			if(farest < dist && dist != Double.POSITIVE_INFINITY){
 				farest = dist;
 			}
-			else if(closest > dist && dist > 0){
-				closest = dist;
-			}
 		}
-		double[] diamAndRad = {farest, closest};
+		double diamAndRad = farest;
 		return diamAndRad;
-	}
-
-	public static void getRadius(Graph g){
-		// Another way to get the radius
-		// could be to run at Edges array
-		// and get the "cheapest" edge
 	}
 
 	/**

@@ -71,6 +71,7 @@ public class FileHandler {
 			}
 		} catch (Exception ex) {
 			System.out.println(ex);
+			System.exit(1);
 		}
 		return queries;
 	}
@@ -80,7 +81,7 @@ public class FileHandler {
 	 * @param respond - the answers to be written into file
 	 */
 	public static void writeAnswers(Map<String[], String> respond){
-		fileName += ".txt";
+		fileName += "_ans.txt";
 		File output = new File("Output/"+fileName);
 		try {
 //			if(!output.createNewFile()){

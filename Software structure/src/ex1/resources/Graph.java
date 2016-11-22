@@ -104,7 +104,6 @@ public class Graph {
 	 * @param g
 	 */
 	public static void clearGraph(Graph g){
-		g.setBlackList(null);
 		for (Vertex v : g.getVertices()) {
 			v.setMinDistance(Double.POSITIVE_INFINITY);
 			v.setPrevious(null);

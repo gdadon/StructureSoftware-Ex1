@@ -18,7 +18,7 @@ public class ShortesPath {
             Vertex u = vertexQueue.poll();
  
             for (Edge e : u.getAdjacencies()) {
-                if (!g.getBlackList().contains(e.getTarget())) {
+                if (!g.getBlackList().contains(e.getTarget().getId())) {
                     Vertex v = e.getTarget();
                     double weight = e.getWeight();
                     double distanceThroughU = u.getMinDistance() + weight;
